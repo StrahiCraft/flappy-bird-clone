@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/PipesScript.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/pipe_extention.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/pipe.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 40, 189.5 )
+
+[node name="Pipes" type="KinematicBody2D"]
+position = Vector2( 432, 264 )
+script = ExtResource( 1 )
+levelMoveSpeed = -100
+
+[node name="Pipe" type="Sprite" parent="."]
+position = Vector2( 0, 160 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+
+[node name="PipeExtention" type="Sprite" parent="Pipe"]
+position = Vector2( 0, 64 )
+texture = ExtResource( 2 )
+
+[node name="Pipe2" type="Sprite" parent="."]
+position = Vector2( 0, -184 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+flip_v = true
+
+[node name="PipeExtention" type="Sprite" parent="Pipe2"]
+position = Vector2( 0, -61.3333 )
+texture = ExtResource( 2 )
+
+[node name="Upper hitbox" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -280 )
+shape = SubResource( 1 )
+
+[node name="Lower hitbox" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 255 )
+shape = SubResource( 1 )
