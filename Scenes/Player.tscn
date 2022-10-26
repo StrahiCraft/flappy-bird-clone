@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/PlayerScipt.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/flapper_flap.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/flapper_fall.png" type="Texture" id=3]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": false,
+"name": "fall",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "flap",
+"speed": 20.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 20, 24 )
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 224, 224 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+fallingSpeed = 600
+jumpHeight = 300
+rotationStrength = 0.12
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -3.8147e-06, -3.8147e-06 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 2 )
+animation = "flap"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -4, 0 )
+shape = SubResource( 1 )

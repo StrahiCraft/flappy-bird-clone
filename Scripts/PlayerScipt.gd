@@ -16,11 +16,14 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("jump"):
 		_jump()
+		
+	if velocity.y > -jumpHeight/1.2:
+		$AnimatedSprite.stop()
+		$AnimatedSprite.play("fall")
 	pass
 	
 func _jump():
 	velocity.y = -jumpHeight
-	$AnimatedSprite.stop()
 	$AnimatedSprite.play("flap")
 	pass
 
