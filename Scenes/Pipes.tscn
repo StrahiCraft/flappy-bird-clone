@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/PipesScript.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/pipe_extention.png" type="Texture" id=2]
@@ -6,6 +6,9 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 48, 189.5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 48, 76 )
 
 [node name="Pipes" type="KinematicBody2D"]
 position = Vector2( 432, 264 )
@@ -39,3 +42,9 @@ shape = SubResource( 1 )
 [node name="Upper colider" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -280 )
 shape = SubResource( 1 )
+
+[node name="ScoreArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreArea"]
+position = Vector2( 0, -12 )
+shape = SubResource( 2 )

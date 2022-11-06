@@ -8,10 +8,6 @@ func _ready():
 	velocity.x = levelMoveSpeed
 	pass 
 
-func _physics_process(delta):
-	
-	pass
-
 func _process(delta):
 	if position.x <= -512:
 		position.x = 1536

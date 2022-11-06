@@ -6,6 +6,8 @@ export (float) var rotationStrength
 
 var currentState = PlayerState.Alive
 
+var score = 0
+
 enum PlayerState{
 	Menu,
 	Alive,
@@ -45,7 +47,7 @@ func _process(delta):
 				$AnimatedSprite.play("fall")
 			pass
 		PlayerState.Dead:
-			velocity.y = jumpHeight
+			_update_velocity(delta)
 			pass
 	pass
 	
@@ -63,7 +65,7 @@ func _rotate_player(delta) -> void:
 	rotation = velocity.y * rotationStrength * delta
 
 
-func _on_ObsticleDetector_body_entered(body):
+func _on_ObsticleDetector_body_entered(_body):
 	_change_state(2)
 	pass
 
@@ -72,3 +74,11 @@ func _change_state(newState: int) -> void:
 
 func _get_player_state() -> int:
 	return currentState
+
+
+func _on_ObsticleDetector_area_entered(_area):
+	score += 1
+	pass 
+
+func _get_score() -> int:
+	return score
