@@ -2,8 +2,6 @@ extends Node2D
 
 export (int) var gameSpeed
 
-var score = 0
-
 func _ready():
 	_start_background()
 	pass 
@@ -14,60 +12,68 @@ func _process(_delta):
 			if Input.is_action_just_pressed("jump"):
 				$Player._change_state(1)
 				$Player._jump()
+			_update_score_counter(" ")
+			_set_UI_visibility(false, true, false, true)
 			pass
 		1:#alive
 			_start_gameplay()
 			_start_background()
-			score = $Player._get_score()
+			_update_score_counter($Player._get_score())
+			_set_UI_visibility(true, false, false, false)
 			pass
 		2:#dead
 			_stop_gameplay()
 			_stop_background()
+			_set_UI_visibility(false, false, true, true)
+			_update_scores_post_game($Player._get_score())
+			if $UI.retryPressed:
+				_reset_game()
+				$UI.retryPressed = false
 			pass
 	pass
 
+func _update_score_counter(score) -> void:
+	get_node("UI/ScoreCounter").text = str(score)
+
+func _update_scores_post_game(score) -> void:
+	get_node("UI/Score").text = "Score:" + str(score)
+	_update_highscore(score)
+	
+func _update_highscore(score: int) -> void:
+	if $SaveSystem.highscore < score:
+		$SaveSystem._save_data(score)
+	get_node("UI/Highscore").text = "Highscore:" + str($SaveSystem.highscore)
+
+func _set_UI_visibility(score: bool, title: bool, retry: bool, highscore: bool) -> void:
+	get_node("UI/ScoreCounter").visible = score
+	get_node("UI/Title").visible = title
+	get_node("UI/RetryButton").visible = retry
+	get_node("UI/Highscore").visible = highscore
+	get_node("UI/Score").visible = highscore
+
+func _reset_game() -> void:
+	for i in 5:
+		get_node("Level/Pipes" + str(i+1))._reset()
+	for i in 5:
+		get_node("Background/Layer" + str(i+1) + "/Background" + str(i+1))._reset()
+	$Level/Ground._reset()
+	$Player._reset()
+
 func _stop_gameplay() -> void:
-	$Level/Pipes._stop_pipe()
-	$Level/Pipes2._stop_pipe()
-	$Level/Pipes3._stop_pipe()
-	$Level/Pipes4._stop_pipe()
-	$Level/Pipes5._stop_pipe()
+	for i in 5:
+		get_node("Level/Pipes" + str(i+1))._stop_pipe()
 	$Level/Ground._stop_ground()
-	$Level/Ground2._stop_ground()
-	$Level/Ground3._stop_ground()
-	$Level/Ground4._stop_ground()
 
 func _start_gameplay() -> void:
-	$Level/Pipes._start_pipe()
-	$Level/Pipes2._start_pipe()
-	$Level/Pipes3._start_pipe()
-	$Level/Pipes4._start_pipe()
-	$Level/Pipes5._start_pipe()
+	for i in 5:
+		get_node("Level/Pipes" + str(i+1))._start_pipe()
 	$Level/Ground._start_ground()
-	$Level/Ground2._start_ground()
-	$Level/Ground3._start_ground()
-	$Level/Ground4._start_ground()
 
 func _start_background() -> void:
-	$Background/Layer5/Background5._start_layer(gameSpeed)
-	$Background/Layer5/Background5_1._start_layer(gameSpeed)
-	$Background/Layer4/Background4._start_layer(gameSpeed * 0.85)
-	$Background/Layer4/Background4_1._start_layer(gameSpeed * 0.85)
-	$Background/Layer3/Background3._start_layer(gameSpeed * 0.7)
-	$Background/Layer3/Background3_1._start_layer(gameSpeed * 0.7)
-	$Background/Layer2/Background2._start_layer(gameSpeed * 0.55)
-	$Background/Layer2/Background2_1._start_layer(gameSpeed * 0.55)
-	$Background/Layer1/Background1._start_layer(gameSpeed * 0.4)
-	$Background/Layer1/Background1_1._start_layer(gameSpeed * 0.4)
+	for i in 5:
+		var multiplier = 1 - 0.15 * (5 - i)
+		get_node("Background/Layer" + str(i+1) +"/Background" + str(i+1))._start_layer(gameSpeed * multiplier)
 
 func _stop_background() -> void:
-	$Background/Layer5/Background5._stop_layer()
-	$Background/Layer5/Background5_1._stop_layer()
-	$Background/Layer4/Background4._stop_layer()
-	$Background/Layer4/Background4_1._stop_layer()
-	$Background/Layer3/Background3._stop_layer()
-	$Background/Layer3/Background3_1._stop_layer()
-	$Background/Layer2/Background2._stop_layer()
-	$Background/Layer2/Background2_1._stop_layer()
-	$Background/Layer1/Background1._stop_layer()
-	$Background/Layer1/Background1_1._stop_layer()
+	for i in 5:
+		get_node("Background/Layer" + str(i+1) +"/Background" + str(i+1))._stop_layer()

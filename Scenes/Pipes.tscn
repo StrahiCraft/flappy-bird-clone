@@ -8,10 +8,11 @@
 extents = Vector2( 48, 189.5 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 48, 76 )
+extents = Vector2( 24, 76 )
 
 [node name="Pipes" type="KinematicBody2D"]
 position = Vector2( 432, 264 )
+z_index = 1
 collision_layer = 2
 script = ExtResource( 1 )
 levelMoveSpeed = -100

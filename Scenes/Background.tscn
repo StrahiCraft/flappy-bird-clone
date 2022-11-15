@@ -25,12 +25,9 @@ z_index = -9
 texture = ExtResource( 2 )
 script = ExtResource( 7 )
 
-[node name="Background1_1" type="Sprite" parent="Layer1"]
-position = Vector2( 1616, 256 )
-scale = Vector2( 2, 2 )
-z_index = -9
+[node name="Background1_1" type="Sprite" parent="Layer1/Background1"]
+position = Vector2( 540, 0 )
 texture = ExtResource( 2 )
-script = ExtResource( 7 )
 
 [node name="Layer2" type="Node" parent="."]
 
@@ -41,12 +38,9 @@ z_index = -8
 texture = ExtResource( 3 )
 script = ExtResource( 7 )
 
-[node name="Background2_1" type="Sprite" parent="Layer2"]
-position = Vector2( 1616, 256 )
-scale = Vector2( 2, 2 )
-z_index = -8
+[node name="Background2_1" type="Sprite" parent="Layer2/Background2"]
+position = Vector2( 540, 0 )
 texture = ExtResource( 3 )
-script = ExtResource( 7 )
 
 [node name="Layer3" type="Node" parent="."]
 
@@ -57,12 +51,9 @@ z_index = -7
 texture = ExtResource( 4 )
 script = ExtResource( 7 )
 
-[node name="Background3_1" type="Sprite" parent="Layer3"]
-position = Vector2( 1616, 256 )
-scale = Vector2( 2, 2 )
-z_index = -7
+[node name="Background3_1" type="Sprite" parent="Layer3/Background3"]
+position = Vector2( 540, 0 )
 texture = ExtResource( 4 )
-script = ExtResource( 7 )
 
 [node name="Layer4" type="Node" parent="."]
 
@@ -73,12 +64,9 @@ z_index = -6
 texture = ExtResource( 6 )
 script = ExtResource( 7 )
 
-[node name="Background4_1" type="Sprite" parent="Layer4"]
-position = Vector2( 1616, 256 )
-scale = Vector2( 2, 2 )
-z_index = -6
+[node name="Background4_1" type="Sprite" parent="Layer4/Background4"]
+position = Vector2( 540, 0 )
 texture = ExtResource( 6 )
-script = ExtResource( 7 )
 
 [node name="Layer5" type="Node" parent="."]
 
@@ -89,9 +77,6 @@ z_index = -5
 texture = ExtResource( 5 )
 script = ExtResource( 7 )
 
-[node name="Background5_1" type="Sprite" parent="Layer5"]
-position = Vector2( 1616, 256 )
-scale = Vector2( 2, 2 )
-z_index = -5
+[node name="Background5_1" type="Sprite" parent="Layer5/Background5"]
+position = Vector2( 540, 0 )
 texture = ExtResource( 5 )
-script = ExtResource( 7 )

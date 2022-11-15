@@ -3,14 +3,16 @@ extends KinematicBody2D
 export (int) var levelMoveSpeed
 var velocity = Vector2()
 var rng = RandomNumberGenerator.new()
+var defaultPos
 
 func _ready():
 	velocity.x = levelMoveSpeed
+	defaultPos = position.x
 	pass 
 
 func _process(delta):
-	if position.x <= -512:
-		position.x = 1536
+	if position.x <= 256:
+		position.x = 512
 	move_and_collide(velocity * delta)
 	pass
 
@@ -19,3 +21,6 @@ func _start_ground() -> void:
 
 func _stop_ground() -> void:
 	velocity.x = 0
+
+func _reset() -> void:
+	position.x = defaultPos

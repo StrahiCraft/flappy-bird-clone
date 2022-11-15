@@ -13,6 +13,10 @@ config_version=4
 config/name="Flappy bird clone"
 run/main_scene="res://Scenes/Main Scene.tscn"
 
+[autoload]
+
+SaveSystem="*res://Scripts/SaveSystem.gd"
+
 [display]
 
 window/size/width=960

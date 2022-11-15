@@ -7,6 +7,7 @@ export (float) var rotationStrength
 var currentState = PlayerState.Alive
 
 var score = 0
+var defaultHeight
 
 enum PlayerState{
 	Menu,
@@ -17,6 +18,7 @@ enum PlayerState{
 var velocity = Vector2()
 
 func _ready():
+	defaultHeight = position.y
 	currentState = PlayerState.Menu
 	$AnimatedSprite.play("menu")
 	pass
@@ -54,6 +56,7 @@ func _process(delta):
 func _jump() -> void:
 	velocity.y = -jumpHeight
 	$AnimatedSprite.play("flap")
+	$AudioNodes/JumpSoundPlayer.play()
 
 func _update_velocity(delta) -> void:
 	velocity.y += fallingSpeed * delta
@@ -67,6 +70,7 @@ func _rotate_player(delta) -> void:
 
 func _on_ObsticleDetector_body_entered(_body):
 	_change_state(2)
+	$AudioNodes/DeathSoundPlayer.play()
 	pass
 
 func _change_state(newState: int) -> void:
@@ -78,7 +82,14 @@ func _get_player_state() -> int:
 
 func _on_ObsticleDetector_area_entered(_area):
 	score += 1
+	$AudioNodes/SocreSoundPlayer.play()
 	pass 
 
 func _get_score() -> int:
 	return score
+
+func _reset() -> void:
+	velocity.y = 0
+	position.y = defaultHeight
+	score = 0
+	_change_state(PlayerState.Alive)

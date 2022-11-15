@@ -1,47 +1,49 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Pipes.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/GameLoopScript.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Ground.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scripts/SaveSystem.gd" type="Script" id=7]
 
 [node name="Main Scene" type="Node2D"]
 script = ExtResource( 3 )
 gameSpeed = -100
 
+[node name="UI" parent="." instance=ExtResource( 6 )]
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 224, 272 )
+z_index = -2
 
 [node name="Level" type="Node" parent="."]
 
-[node name="Pipes" parent="Level" instance=ExtResource( 2 )]
+[node name="Pipes1" parent="Level" instance=ExtResource( 2 )]
 position = Vector2( 1024, 256 )
+z_index = -1
 
 [node name="Pipes2" parent="Level" instance=ExtResource( 2 )]
 position = Vector2( 1224, 256 )
+z_index = -1
 
 [node name="Pipes3" parent="Level" instance=ExtResource( 2 )]
 position = Vector2( 1424, 256 )
+z_index = -1
 
 [node name="Pipes4" parent="Level" instance=ExtResource( 2 )]
 position = Vector2( 1624, 256 )
+z_index = -1
 
 [node name="Pipes5" parent="Level" instance=ExtResource( 2 )]
 position = Vector2( 1824, 256 )
+z_index = -1
 
 [node name="Ground" parent="Level" instance=ExtResource( 4 )]
-position = Vector2( 512, 512 )
-
-[node name="Ground2" parent="Level" instance=ExtResource( 4 )]
-position = Vector2( 1536, 512 )
-
-[node name="Ground3" parent="Level" instance=ExtResource( 4 )]
-position = Vector2( 512, 32 )
-rotation = 3.14159
-
-[node name="Ground4" parent="Level" instance=ExtResource( 4 )]
-position = Vector2( 1536, 32 )
-rotation = 3.14159
+position = Vector2( 504, 512 )
 
 [node name="Background" parent="." instance=ExtResource( 5 )]
+
+[node name="SaveSystem" type="Node" parent="."]
+script = ExtResource( 7 )

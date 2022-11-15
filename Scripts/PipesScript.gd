@@ -4,17 +4,17 @@ export (int) var levelMoveSpeed
 var velocity = Vector2()
 var rng = RandomNumberGenerator.new()
 
+var defaultPos
+
 func _ready():
+	defaultPos = position.x
 	_randomise_height()
 	pass 
 
-func _physics_process(delta):
+func _process(delta):
 	move_and_collide(velocity * delta)
-	pass
-
-func _process(_delta):
-	if position.x <= -50:
-		position.x = 1000
+	if position.x <= -48:
+		position.x = 998
 		_randomise_height()
 	pass
 
@@ -27,3 +27,7 @@ func _start_pipe() -> void:
 
 func _stop_pipe() -> void:
 	velocity.x = 0
+
+func _reset() -> void:
+	position.x = defaultPos
+	_randomise_height()
