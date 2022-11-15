@@ -10,8 +10,10 @@ config_version=4
 
 [application]
 
-config/name="Flappy bird clone"
+config/name="Flapper Bird"
+config/description="A flappy bird clone"
 run/main_scene="res://Scenes/Main Scene.tscn"
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 
 [autoload]
 

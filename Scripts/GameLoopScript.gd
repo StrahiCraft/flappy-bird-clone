@@ -17,6 +17,7 @@ func _process(_delta):
 				$Player._change_state(1)
 				$Player._jump()
 			_update_score_counter(" ")
+			_update_highscore($Player._get_score())
 			_set_UI_visibility(false, true, false, true)
 			pass
 		1:#alive
