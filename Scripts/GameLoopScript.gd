@@ -7,6 +7,10 @@ func _ready():
 	pass 
 
 func _process(_delta):
+	
+	if Input.is_action_just_pressed("close_game"):
+		get_tree().quit()
+	
 	match $Player._get_player_state():
 		0:#menu
 			if Input.is_action_just_pressed("jump"):
