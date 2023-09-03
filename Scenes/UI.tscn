@@ -1,99 +1,99 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Themes/joystix monospace.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Themes/joystix monospace.ttf" type="FontFile" id=1]
 [ext_resource path="res://Themes/UI.tres" type="Theme" id=2]
 [ext_resource path="res://Scripts/UIScript.gd" type="Script" id=3]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="FontFile" id=2]
 size = 48
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="FontFile" id=3]
 size = 48
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="FontFile" id=4]
 size = 26
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="FontFile" id=5]
 size = 32
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="FontFile" id=6]
 size = 32
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
 [node name="UI" type="Control"]
-margin_right = 960.0
-margin_bottom = 540.0
+offset_right = 960.0
+offset_bottom = 540.0
 theme = ExtResource( 2 )
 script = ExtResource( 3 )
 
 [node name="ScoreCounter" type="Label" parent="."]
-margin_top = 72.0
-margin_right = 264.0
-margin_bottom = 216.0
+offset_top = 72.0
+offset_right = 264.0
+offset_bottom = 216.0
 theme = ExtResource( 2 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 2 )
+theme_override_colors/font_color = Color( 1, 1, 1, 1 )
+theme_override_colors/font_shadow_color = Color( 0, 0, 0, 1 )
+theme_override_fonts/font = SubResource( 2 )
 text = "0"
 align = 1
 valign = 1
 
 [node name="Title" type="Label" parent="."]
-margin_left = 136.0
-margin_top = 80.0
-margin_right = 824.0
-margin_bottom = 138.0
+offset_left = 136.0
+offset_top = 80.0
+offset_right = 824.0
+offset_bottom = 138.0
 theme = ExtResource( 2 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_fonts/font = SubResource( 3 )
+theme_override_colors/font_color = Color( 1, 1, 1, 1 )
+theme_override_fonts/font = SubResource( 3 )
 text = "Flappy Bird clone"
 align = 1
 valign = 1
 
 [node name="RetryButton" type="Button" parent="."]
-margin_left = 384.0
-margin_top = 384.0
-margin_right = 576.0
-margin_bottom = 440.0
+offset_left = 384.0
+offset_top = 384.0
+offset_right = 576.0
+offset_bottom = 440.0
 theme = ExtResource( 2 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_fonts/font = SubResource( 4 )
+theme_override_colors/font_color = Color( 1, 1, 1, 1 )
+theme_override_fonts/font = SubResource( 4 )
 text = "Retry"
 
 [node name="Highscore" type="Label" parent="."]
-margin_left = 256.0
-margin_top = 192.0
-margin_right = 704.0
-margin_bottom = 256.0
+offset_left = 256.0
+offset_top = 192.0
+offset_right = 704.0
+offset_bottom = 256.0
 theme = ExtResource( 2 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_fonts/font = SubResource( 5 )
+theme_override_colors/font_color = Color( 1, 1, 1, 1 )
+theme_override_fonts/font = SubResource( 5 )
 text = "Highscore:0"
 align = 1
 valign = 1
 
 [node name="Score" type="Label" parent="."]
-margin_left = 256.0
-margin_top = 128.0
-margin_right = 704.0
-margin_bottom = 192.0
+offset_left = 256.0
+offset_top = 128.0
+offset_right = 704.0
+offset_bottom = 192.0
 theme = ExtResource( 2 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_fonts/font = SubResource( 6 )
+theme_override_colors/font_color = Color( 1, 1, 1, 1 )
+theme_override_fonts/font = SubResource( 6 )
 text = "Score:0"
 align = 1
 valign = 1

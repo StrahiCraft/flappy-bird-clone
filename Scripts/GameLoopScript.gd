@@ -1,6 +1,6 @@
 extends Node2D
 
-export (int) var gameSpeed
+@export (int) var gameSpeed
 
 func _ready():
 	_start_background()

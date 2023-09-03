@@ -1,7 +1,7 @@
 extends Node
 
 const SAVE_FILE = "user://save_file.save"
-export (int) var highscore
+@export (int) var highscore
 
 func _ready():
 	_load_data()

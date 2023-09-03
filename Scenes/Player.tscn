@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/PlayerScipt.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/flapper_flap.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/flapper_fall.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/flapper_flap.png" type="Texture2D" id=2]
+[ext_resource path="res://Sprites/flapper_fall.png" type="Texture2D" id=3]
 [ext_resource path="res://SFX/jump.wav" type="AudioStream" id=4]
 [ext_resource path="res://SFX/scoreUp.wav" type="AudioStream" id=5]
 [ext_resource path="res://SFX/deathSound.wav" type="AudioStream" id=6]
@@ -33,7 +33,7 @@ height = 4.0
 radius = 20.0
 height = 0.0
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="CharacterBody2D"]
 position = Vector2( 224, 224 )
 collision_mask = 6
 script = ExtResource( 1 )
@@ -41,7 +41,7 @@ fallingSpeed = 600
 jumpHeight = 300
 rotationStrength = 0.12
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2( -7.62939e-06, -7.62939e-06 )
 scale = Vector2( 2, 2 )
 z_index = 1

@@ -1,6 +1,6 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
-export (int) var levelMoveSpeed
+@export (int) var levelMoveSpeed
 var velocity = Vector2()
 var rng = RandomNumberGenerator.new()
 

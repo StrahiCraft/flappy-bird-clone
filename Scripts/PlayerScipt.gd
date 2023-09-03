@@ -1,8 +1,8 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
-export (int) var fallingSpeed
-export (int) var jumpHeight
-export (float) var rotationStrength
+@export (int) var fallingSpeed
+@export (int) var jumpHeight
+@export (float) var rotationStrength
 
 var currentState = PlayerState.Alive
 
@@ -20,7 +20,7 @@ var velocity = Vector2()
 func _ready():
 	defaultHeight = position.y
 	currentState = PlayerState.Menu
-	$AnimatedSprite.play("menu")
+	$AnimatedSprite2D.play("menu")
 	pass
 
 func _physics_process(delta):
@@ -45,8 +45,8 @@ func _process(delta):
 			if Input.is_action_just_pressed("jump"):
 				_jump()
 			if velocity.y > -jumpHeight / 1.2:
-				$AnimatedSprite.stop()
-				$AnimatedSprite.play("fall")
+				$AnimatedSprite2D.stop()
+				$AnimatedSprite2D.play("fall")
 			pass
 		PlayerState.Dead:
 			_update_velocity(delta)
@@ -55,14 +55,15 @@ func _process(delta):
 	
 func _jump() -> void:
 	velocity.y = -jumpHeight
-	$AnimatedSprite.play("flap")
+	$AnimatedSprite2D.play("flap")
 	$AudioNodes/JumpSoundPlayer.play()
 
 func _update_velocity(delta) -> void:
 	velocity.y += fallingSpeed * delta
 
 func _move_player() -> void:
-	move_and_slide(velocity)
+	set_velocity(velocity)
+	move_and_slide()
 
 func _rotate_player(delta) -> void:
 	rotation = velocity.y * rotationStrength * delta

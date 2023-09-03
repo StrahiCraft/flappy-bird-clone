@@ -1,38 +1,38 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/PipesScript.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/pipe_extention.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/pipe.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/pipe_extention.png" type="Texture2D" id=2]
+[ext_resource path="res://Sprites/pipe.png" type="Texture2D" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 48, 189.5 )
+size = Vector2( 48, 189.5 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 24, 76 )
+size = Vector2( 24, 76 )
 
-[node name="Pipes" type="KinematicBody2D"]
+[node name="Pipes" type="CharacterBody2D"]
 position = Vector2( 432, 264 )
 z_index = 1
 collision_layer = 2
 script = ExtResource( 1 )
 levelMoveSpeed = -100
 
-[node name="Pipe" type="Sprite" parent="."]
+[node name="Pipe" type="Sprite2D" parent="."]
 position = Vector2( 0, 160 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 3 )
 
-[node name="PipeExtention" type="Sprite" parent="Pipe"]
+[node name="PipeExtention" type="Sprite2D" parent="Pipe"]
 position = Vector2( 0, 64 )
 texture = ExtResource( 2 )
 
-[node name="Pipe2" type="Sprite" parent="."]
+[node name="Pipe2" type="Sprite2D" parent="."]
 position = Vector2( 0, -184 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 3 )
 flip_v = true
 
-[node name="PipeExtention" type="Sprite" parent="Pipe2"]
+[node name="PipeExtention" type="Sprite2D" parent="Pipe2"]
 position = Vector2( 0, -61.3333 )
 texture = ExtResource( 2 )
 

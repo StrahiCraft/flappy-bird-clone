@@ -1,0 +1,38 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1690979290
+default_env.tres::Environment::-1::1690979271::0::1::::<><>::
+export_presets.cfg::TextFile::-1::1668525817::0::1::::<><>::
+::res://Scenes/::1668525809
+Background.tscn::PackedScene::-1::1690979271::0::1::::<><>::res://Sprites/background0.png<>res://Sprites/background1.png<>res://Sprites/background2.png<>res://Sprites/background3.png<>res://Sprites/background5.png<>res://Sprites/background4.png<>res://Scripts/BackgroundParallaxScript.gd
+Ground.tscn::PackedScene::-1::1690979271::0::1::::<><>::res://Sprites/ground.png<>res://Scripts/GroundScript.gd
+Main Scene.tscn::PackedScene::-1::1690979271::0::1::::<><>::res://Scenes/Player.tscn<>res://Scenes/Pipes.tscn<>res://Scripts/GameLoopScript.gd<>res://Scenes/Ground.tscn<>res://Scenes/Background.tscn<>res://Scenes/UI.tscn<>res://Scripts/SaveSystem.gd
+Pipes.tscn::PackedScene::-1::1690979271::0::1::::<><>::res://Scripts/PipesScript.gd<>res://Sprites/pipe_extention.png<>res://Sprites/pipe.png
+Player.tscn::PackedScene::-1::1690979271::0::1::::<><>::res://Scripts/PlayerScipt.gd<>res://Sprites/flapper_flap.png<>res://Sprites/flapper_fall.png<>res://SFX/jump.wav<>res://SFX/scoreUp.wav<>res://SFX/deathSound.wav
+UI.tscn::PackedScene::-1::1690979271::0::1::::<><>::res://Themes/joystix monospace.ttf<>res://Themes/UI.tres<>res://Scripts/UIScript.gd
+::res://Scripts/::1668525803
+BackgroundParallaxScript.gd::GDScript::-1::1690979271::0::1::::<>Sprite2D<>::
+GameLoopScript.gd::GDScript::-1::1690979271::0::1::::<>Node2D<>::
+GroundScript.gd::GDScript::-1::1690979271::0::1::::<>CharacterBody2D<>::
+PipesScript.gd::GDScript::-1::1690979271::0::1::::<>CharacterBody2D<>::
+PlayerScipt.gd::GDScript::-1::1690979271::0::1::::<>CharacterBody2D<>::
+SaveSystem.gd::GDScript::-1::1690979271::0::1::::<>Node<>::
+UIScript.gd::GDScript::-1::1690979271::0::1::::<>Control<>::
+::res://SFX/::1668461167
+deathSound.wav::AudioStreamWAV::2279180488187174017::1668461024::1690979292::1::::<><>::
+jump.wav::AudioStreamWAV::4005071218473029742::1668461167::1690979292::1::::<><>::
+scoreUp.wav::AudioStreamWAV::1121501236213470194::1668461045::1690979292::1::::<><>::
+::res://Sprites/::1667740199
+background0.png::CompressedTexture2D::3674664001498102007::1667740177::1690979291::1::::<><>::
+background1.png::CompressedTexture2D::5895592597003486483::1667740177::1690979291::1::::<><>::
+background2.png::CompressedTexture2D::6252876595156404746::1667740177::1690979291::1::::<><>::
+background3.png::CompressedTexture2D::7751790851670430075::1667740177::1690979291::1::::<><>::
+background4.png::CompressedTexture2D::4269918647153253108::1667740177::1690979291::1::::<><>::
+background5.png::CompressedTexture2D::6928701918687101904::1667740177::1690979291::1::::<><>::
+flapper_fall.png::CompressedTexture2D::4293661425112613334::1666717112::1690979291::1::::<><>::
+flapper_flap.png::CompressedTexture2D::8974634572091977214::1666718823::1690979291::1::::<><>::
+ground.png::CompressedTexture2D::9107993956753789202::1667067166::1690979291::1::::<><>::
+pipe.png::CompressedTexture2D::8723825179229111572::1666781801::1690979291::1::::<><>::
+pipe_extention.png::CompressedTexture2D::2329749279169376667::1666781967::1690979291::1::::<><>::
+::res://Themes/::1667824279
+joystix monospace.ttf::FontFile::5037734642224129054::1667768156::1690979291::1::::<><>::
+UI.tres::Theme::-1::1690979271::0::1::::<><>::
